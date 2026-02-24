@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://byjs5wmoqrcr7"]
+[gd_scene load_steps=38 format=4 uid="uid://byjs5wmoqrcr7"]
 
 [ext_resource type="Texture2D" uid="uid://5qerybnew3bq" path="res://Assets/Graphics/Dungeon_24x24.png" id="1_8t2v2"]
 [ext_resource type="Texture2D" uid="uid://8svjmnrekl48" path="res://Assets/Graphics/DungeonSpikes_24x24.png" id="1_802lj"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://ptxkpl7h47yg" path="res://Assets/Graphics/Wisp.png" id="4_mqbpb"]
 [ext_resource type="Texture2D" uid="uid://coegtc6memg27" path="res://Assets/Graphics/decor.png" id="4_vqsqb"]
 [ext_resource type="Script" uid="uid://ccai4ihi000c3" path="res://Assets/Scenes/gate.gd" id="5_xgr2a"]
+[ext_resource type="PackedScene" uid="uid://cs70gnleyrs61" path="res://Assets/Scenes/interacting_component.tscn" id="7_vqsqb"]
+[ext_resource type="Script" uid="uid://bgwkvsh17y5u7" path="res://Assets/Scenes/lever.gd" id="8_vqsqb"]
+[ext_resource type="Texture2D" uid="uid://ds445d5du8tdl" path="res://icon.svg" id="10_ooilj"]
+[ext_resource type="PackedScene" uid="uid://4toljuxl00en" path="res://Assets/Scenes/interactable.tscn" id="11_2w2ct"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0ca2"]
 texture = ExtResource("1_802lj")
@@ -287,6 +291,9 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mqbpb"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aq61h"]
+radius = 20.024984
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_802lj"]
 size = Vector2(8, 48)
 
@@ -320,7 +327,7 @@ polygon = PackedVector2Array(440, 527, 536, 527, 536, 623, 632, 623, 632, 679, 5
 
 [node name="PlayerCharacter" type="CharacterBody2D" parent="Objects"]
 z_index = 10
-position = Vector2(172, 125)
+position = Vector2(451, 442)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("2_mqbpb")
@@ -340,9 +347,13 @@ shape = SubResource("CapsuleShape2D_802lj")
 visible = false
 zoom = Vector2(5, 5)
 
+[node name="InteractingComponent" parent="Objects/PlayerCharacter" instance=ExtResource("7_vqsqb")]
+
 [node name="Wisp" type="AnimatableBody2D" parent="Objects"]
 position = Vector2(256, 123)
 scale = Vector2(0.75, 0.75)
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Wisp"]
 visible = false
@@ -355,14 +366,29 @@ autoplay = "default"
 frame = 1
 frame_progress = 0.80559236
 
-[node name="Lever" type="AnimatableBody2D" parent="Objects"]
+[node name="Lever" type="StaticBody2D" parent="Objects"]
 position = Vector2(548, 445)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("8_vqsqb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Lever"]
 shape = SubResource("CircleShape2D_mqbpb")
 
+[node name="Sprite2D" type="Sprite2D" parent="Objects/Lever"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_ooilj")
+
+[node name="Interact" parent="Objects/Lever" instance=ExtResource("11_2w2ct")]
+interact_name = "Flip Lever"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Lever/Interact"]
+shape = SubResource("CircleShape2D_aq61h")
+
 [node name="Gate" type="StaticBody2D" parent="Objects"]
 position = Vector2(570, 574)
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("5_xgr2a")
 
 [node name="GateTop" type="Sprite2D" parent="Objects/Gate"]

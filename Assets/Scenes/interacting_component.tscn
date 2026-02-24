@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs70gnleyrs61"]
+
+[ext_resource type="Script" uid="uid://ceetcdtjdqqgh" path="res://Assets/Scenes/interacting_component.gd" id="1_68t8w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4cvt"]
+radius = 13.038404
+
+[sub_resource type="SystemFont" id="SystemFont_68t8w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_68t8w"]
+font = SubResource("SystemFont_68t8w")
+font_size = 10
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InteractingComponent" type="Node2D"]
+script = ExtResource("1_68t8w")
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_m4cvt")
+
+[node name="Label" type="Label" parent="."]
+z_index = 15
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -43.0
+offset_right = 70.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press F to interact"
+label_settings = SubResource("LabelSettings_68t8w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
+[connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]
