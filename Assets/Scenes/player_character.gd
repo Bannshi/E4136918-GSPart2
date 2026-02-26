@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 
+var gem_counter = 0
+
+@onready var gem_label: Label = %GemLabel
 
 func _physics_process(_delta: float) -> void:
 	
@@ -24,9 +27,13 @@ func _physics_process(_delta: float) -> void:
 		$AnimatedSprite2D.play("Run")
 	else:
 		$AnimatedSprite2D.play("Idle")
-
-
-
 	move_and_slide()
-	
-	
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("gem"):
+		set_gem_count(gem_counter + 1)
+		print(gem_counter)
+
+func set_gem_count(new_gem_count: int) -> void:
+	gem_counter = new_gem_count
+	gem_label.text = str(gem_counter)

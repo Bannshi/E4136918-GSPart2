@@ -1,18 +1,18 @@
-[gd_scene load_steps=52 format=4 uid="uid://byjs5wmoqrcr7"]
+[gd_scene load_steps=30 format=4 uid="uid://byjs5wmoqrcr7"]
 
 [ext_resource type="Texture2D" uid="uid://5qerybnew3bq" path="res://Assets/Graphics/Dungeon_24x24.png" id="1_8t2v2"]
 [ext_resource type="Texture2D" uid="uid://8svjmnrekl48" path="res://Assets/Graphics/DungeonSpikes_24x24.png" id="1_802lj"]
-[ext_resource type="Script" uid="uid://dpoqfjbbf80vb" path="res://Assets/Scenes/player_character.gd" id="2_mqbpb"]
-[ext_resource type="Texture2D" uid="uid://d35gsxckaigp8" path="res://Assets/Graphics/Soldier.png" id="2_vohp4"]
 [ext_resource type="Texture2D" uid="uid://bp3lra1y0e51p" path="res://Assets/Graphics/Dungeon_24x24-15.png.png" id="3_duppq"]
 [ext_resource type="Texture2D" uid="uid://ptxkpl7h47yg" path="res://Assets/Graphics/Wisp.png" id="4_mqbpb"]
 [ext_resource type="Texture2D" uid="uid://coegtc6memg27" path="res://Assets/Graphics/decor.png" id="4_vqsqb"]
+[ext_resource type="PackedScene" uid="uid://chmcci14xaw75" path="res://Assets/Scenes/player_character.tscn" id="5_rdao5"]
 [ext_resource type="Script" uid="uid://ccai4ihi000c3" path="res://Assets/Scenes/gate.gd" id="5_xgr2a"]
+[ext_resource type="FontFile" uid="uid://cxuydm2rm3ubk" path="res://Assets/Graphics/Minecraft.ttf" id="6_aq61h"]
+[ext_resource type="Texture2D" uid="uid://bfoxpmg5emlpx" path="res://Assets/Graphics/gem.png" id="7_61ydt"]
 [ext_resource type="PackedScene" uid="uid://ffdpmd2sg7sl" path="res://Assets/InteractLogic/interaction_manager.tscn" id="7_ooilj"]
 [ext_resource type="Script" uid="uid://bgwkvsh17y5u7" path="res://Assets/Scenes/lever.gd" id="8_vqsqb"]
 [ext_resource type="Texture2D" uid="uid://cgko7osslj40o" path="res://Assets/Graphics/Lever.png" id="9_ooilj"]
 [ext_resource type="PackedScene" uid="uid://d1pqgo3wf6sug" path="res://Assets/InteractLogic/interaction_area.tscn" id="10_rdao5"]
-[ext_resource type="PackedScene" uid="uid://c0j6grqreeboe" path="res://Assets/Scenes/GameManager.tscn" id="13_2w2ct"]
 [ext_resource type="PackedScene" uid="uid://cvdrputfagshy" path="res://Assets/Scenes/gem.tscn" id="14_aq61h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0ca2"]
@@ -235,175 +235,12 @@ sources/2 = SubResource("TileSetAtlasSource_i0ca2")
 sources/7 = SubResource("TileSetAtlasSource_ubt4h")
 sources/8 = SubResource("TileSetAtlasSource_rdao5")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_02lvh"]
-atlas = ExtResource("2_vohp4")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2do2"]
-atlas = ExtResource("2_vohp4")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qjy51"]
-load_path = "res://.godot/imported/Soldier.png-b30a4e0c878a16ec852fa8f1a21be801.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i0ca2"]
-atlas = SubResource("CompressedTexture2D_qjy51")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_duppq"]
-atlas = SubResource("CompressedTexture2D_qjy51")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qjy51"]
-atlas = ExtResource("2_vohp4")
-region = Rect2(0, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6w7qo"]
-atlas = ExtResource("2_vohp4")
-region = Rect2(100, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_64k3t"]
-atlas = ExtResource("2_vohp4")
-region = Rect2(200, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_spvk6"]
-atlas = ExtResource("2_vohp4")
-region = Rect2(300, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ig8j3"]
-atlas = ExtResource("2_vohp4")
-region = Rect2(400, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2kmt"]
-atlas = ExtResource("2_vohp4")
-region = Rect2(500, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kh5qn"]
-atlas = ExtResource("2_vohp4")
-region = Rect2(600, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kg43w"]
-atlas = ExtResource("2_vohp4")
-region = Rect2(700, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vqsqb"]
-atlas = SubResource("CompressedTexture2D_qjy51")
-region = Rect2(0, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ubt4h"]
-atlas = SubResource("CompressedTexture2D_qjy51")
-region = Rect2(100, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdao5"]
-atlas = SubResource("CompressedTexture2D_qjy51")
-region = Rect2(200, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ooilj"]
-atlas = SubResource("CompressedTexture2D_qjy51")
-region = Rect2(300, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2w2ct"]
-atlas = SubResource("CompressedTexture2D_qjy51")
-region = Rect2(400, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aq61h"]
-atlas = SubResource("CompressedTexture2D_qjy51")
-region = Rect2(500, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_61ydt"]
-atlas = SubResource("CompressedTexture2D_qjy51")
-region = Rect2(600, 100, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s7rws"]
-atlas = SubResource("CompressedTexture2D_qjy51")
-region = Rect2(700, 100, 100, 100)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_02lvh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_02lvh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j2do2")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i0ca2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_duppq")
-}],
-"loop": true,
-"name": &"Idle_Old",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qjy51")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6w7qo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_64k3t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_spvk6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ig8j3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r2kmt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kh5qn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kg43w")
-}],
-"loop": true,
-"name": &"Run",
-"speed": 9.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vqsqb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ubt4h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rdao5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ooilj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2w2ct")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aq61h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_61ydt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s7rws")
-}],
-"loop": true,
-"name": &"Run_Old",
-"speed": 9.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_802lj"]
-radius = 8.75
-height = 20.0
+[sub_resource type="LabelSettings" id="LabelSettings_2w2ct"]
+font = ExtResource("6_aq61h")
+font_size = 38
+font_color = Color(0.7058586, 0.3797659, 0.43167365, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgr2a"]
 radius = 16.74978
@@ -461,28 +298,43 @@ physics_quadrant_size = 32
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="PlayerCharacter" type="CharacterBody2D" parent="Objects" groups=["player"]]
-z_index = 10
-position = Vector2(309, 374)
-collision_layer = 2
-collision_mask = 5
-script = ExtResource("2_mqbpb")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Objects/PlayerCharacter"]
-show_behind_parent = true
-sprite_frames = SubResource("SpriteFrames_02lvh")
-animation = &"Idle"
-frame_progress = 0.02714918
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/PlayerCharacter"]
-visible = false
-show_behind_parent = true
-scale = Vector2(0.8, 0.8)
-shape = SubResource("CapsuleShape2D_802lj")
+[node name="PlayerCharacter" parent="Objects" instance=ExtResource("5_rdao5")]
+position = Vector2(176, 124)
 
 [node name="Camera2D" type="Camera2D" parent="Objects/PlayerCharacter"]
-visible = false
 zoom = Vector2(5, 5)
+
+[node name="GemLabel" type="Label" parent="Objects/PlayerCharacter/Camera2D"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -57.0
+offset_right = -94.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.17161281, 0.17161281)
+text = "0"
+label_settings = SubResource("LabelSettings_2w2ct")
+
+[node name="TextureRect" type="TextureRect" parent="Objects/PlayerCharacter/Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -58.0
+offset_right = -113.16667
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6997441, 0.6997441)
+texture = ExtResource("7_61ydt")
 
 [node name="Wisp" type="AnimatableBody2D" parent="Objects"]
 position = Vector2(256, 123)
@@ -556,19 +408,13 @@ shape = SubResource("RectangleShape2D_ubt4h")
 
 [node name="InteractionManager" parent="Objects" instance=ExtResource("7_ooilj")]
 
-[node name="Gem" parent="Objects" instance=ExtResource("14_aq61h")]
-position = Vector2(274, 420)
-collision_layer = 6
-collision_mask = 6
+[node name="Gems" type="Node" parent="Objects"]
 
-[node name="Gem2" parent="Objects" instance=ExtResource("14_aq61h")]
+[node name="Gem" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
+position = Vector2(274, 420)
+
+[node name="Gem2" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
 position = Vector2(248, 420)
 
-[node name="Gem3" parent="Objects" instance=ExtResource("14_aq61h")]
-position = Vector2(222, 420)
-
-[node name="GameManager" parent="." instance=ExtResource("13_2w2ct")]
-offset_left = 193.0
-offset_top = 455.0
-offset_right = 193.0
-offset_bottom = 455.0
+[node name="Gem3" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
+position = Vector2(225, 420)
