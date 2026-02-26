@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1pqgo3wf6sug"]
+
+[ext_resource type="Script" uid="uid://bfk5bda6v3paq" path="res://Assets/InteractLogic/interaction_area.tres.gd" id="1_vcbr2"]
+
+[node name="InteractionArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_vcbr2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

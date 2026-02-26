@@ -1,5 +1,8 @@
 extends StaticBody2D
 
+#func _ready():
+#	open_gate()
+
 func open_gate():
 	$CollisionShape2D.disabled = true
 	$GateTop.set_frame(72)
