@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgwifvrm2htd0"]
+
+[ext_resource type="Texture2D" uid="uid://coegtc6memg27" path="res://Assets/Graphics/decor.png" id="1_aukpi"]
+[ext_resource type="Script" uid="uid://cymolrl820sj" path="res://Assets/Scenes/barrel.gd" id="1_d1vm1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1vm1"]
+radius = 9.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xeejf"]
+height = 26.0
+
+[node name="Barrel" type="StaticBody2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_d1vm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_d1vm1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aukpi")
+hframes = 7
+vframes = 6
+frame = 8
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_xeejf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

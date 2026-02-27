@@ -5,8 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_y5dek"]
 font = ExtResource("2_ec58p")
-font_size = 20
-outline_size = 6
+outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [node name="InteractionManager" type="Node2D"]
@@ -23,7 +22,7 @@ offset_right = 50.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.20059727, 0.20059727)
+scale = Vector2(0.3, 0.3)
 text = "F: "
 label_settings = SubResource("LabelSettings_y5dek")
 horizontal_alignment = 1
