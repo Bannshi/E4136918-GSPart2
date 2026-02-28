@@ -314,7 +314,7 @@ position = Vector2(905, 830)
 [node name="InteractionManager" parent="Objects" instance=ExtResource("7_ooilj")]
 
 [node name="PlayerCharacter" parent="Objects" instance=ExtResource("5_rdao5")]
-position = Vector2(806, 800)
+position = Vector2(175, 127)
 
 [node name="Camera2D" type="Camera2D" parent="Objects/PlayerCharacter"]
 zoom = Vector2(5, 5)
@@ -407,13 +407,37 @@ shape = SubResource("RectangleShape2D_ubt4h")
 [node name="Gems" type="Node" parent="Objects"]
 
 [node name="Gem" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
-position = Vector2(274, 420)
+position = Vector2(275, 420)
 
 [node name="Gem2" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
-position = Vector2(248, 420)
+position = Vector2(250, 420)
 
 [node name="Gem3" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
 position = Vector2(225, 420)
+
+[node name="Gem4" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
+position = Vector2(322, 470)
+
+[node name="Gem5" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
+position = Vector2(297, 470)
+
+[node name="Gem6" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
+position = Vector2(322, 493)
+
+[node name="Gem7" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
+position = Vector2(297, 493)
+
+[node name="Gem8" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
+position = Vector2(551, 587)
+
+[node name="Gem9" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
+position = Vector2(514, 587)
+
+[node name="Gem10" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
+position = Vector2(628, 587)
+
+[node name="Gem11" parent="Objects/Gems" instance=ExtResource("14_aq61h")]
+position = Vector2(591, 587)
 
 [node name="Wisps" type="Node" parent="Objects"]
 
