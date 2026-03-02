@@ -2,16 +2,18 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 
+var bsword:bool = false
+var bswordleft:bool = true
+var bswordright:bool = false
 var attacking:bool = false
 
 var gem_counter = 0
 @onready var gem_label: Label = %GemLabel
-
 @onready var sword_collision: CollisionShape2D = $Area2DSword/SwordCollisionShape2D
 
 func _physics_process(_delta: float) -> void:
 	
-	if Input.is_action_pressed("MouseLeft"):
+	if Input.is_action_pressed("MouseLeft") && bsword:
 			attacking = true
 			sword_collision.disabled = false
 			$AnimatedSprite2D.play("SwordAttack")
@@ -26,27 +28,46 @@ func _physics_process(_delta: float) -> void:
 	if attacking:
 		Direction = Vector2(0,0)
 	
+	if Direction.x < -0.5:
+		move_sword_left()
+	if Direction.x > 0.5:
+		move_sword_right()
+	
 	if Direction.x:
 		velocity.x = Direction.x * SPEED
 		$AnimatedSprite2D.flip_h = Direction.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
+	
 	if Direction.y:
 		velocity.y = Direction.y * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-		
+	
 	if Direction && !attacking:
 		$AnimatedSprite2D.play("Run")
 	if !Direction && !attacking:
 		$AnimatedSprite2D.play("Idle")
+	
 	move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("gem"):
 		set_gem_count(gem_counter + 1)
 
+
 func set_gem_count(new_gem_count: int) -> void:
 	gem_counter = new_gem_count
 	gem_label.text = str(gem_counter)
+
+func move_sword_left():
+	if bswordleft:
+		sword_collision.translate(Vector2(-17,0))
+		bswordleft = false
+		bswordright = true
+
+func move_sword_right():
+	if bswordright:
+		sword_collision.translate(Vector2(17,0))
+		bswordleft = true
+		bswordright = false

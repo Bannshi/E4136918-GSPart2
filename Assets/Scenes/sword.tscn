@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgfp6prgj7uww"]
+
+[ext_resource type="Script" uid="uid://r33icsjbijdq" path="res://Assets/Scenes/sword.gd" id="1_35yry"]
+[ext_resource type="PackedScene" uid="uid://d1pqgo3wf6sug" path="res://Assets/InteractLogic/interaction_area.tscn" id="2_kc3y2"]
+[ext_resource type="Texture2D" uid="uid://cgcyve2hwcbly" path="res://Assets/Graphics/Sword.png" id="2_mfbq4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_35yry"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cc11m"]
+radius = 26.076809
+
+[node name="Sword" type="Area2D" groups=["sword"]]
+script = ExtResource("1_35yry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_35yry")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_kc3y2")]
+action_name = "Pickup Sword"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_cc11m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+texture = ExtResource("2_mfbq4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

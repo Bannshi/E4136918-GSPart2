@@ -6,6 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgr2a"]
 radius = 16.74978
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s7rws"]
+radius = 49.333344
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqbpb"]
 atlas = ExtResource("2_uam5x")
 region = Rect2(0, 0, 32, 32)
@@ -35,9 +38,6 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s7rws"]
-radius = 49.333344
-
 [node name="Wisp" type="AnimatableBody2D"]
 scale = Vector2(0.75, 0.75)
 collision_layer = 4
@@ -49,16 +49,16 @@ visible = false
 scale = Vector2(0.6, 0.6)
 shape = SubResource("CircleShape2D_xgr2a")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s7rws")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i0ca2")
 autoplay = "default"
 frame = 1
 frame_progress = 0.80559236
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_s7rws")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

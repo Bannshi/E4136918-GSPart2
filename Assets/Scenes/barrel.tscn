@@ -19,17 +19,17 @@ script = ExtResource("1_d1vm1")
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_d1vm1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_aukpi")
-hframes = 7
-vframes = 6
-frame = 8
-
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_xeejf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aukpi")
+hframes = 7
+vframes = 6
+frame = 8
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

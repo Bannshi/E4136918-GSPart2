@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://dpoqfjbbf80vb" path="res://Assets/Scenes/player_character.gd" id="1_i8dos"]
 [ext_resource type="Texture2D" uid="uid://d35gsxckaigp8" path="res://Assets/Graphics/Soldier.png" id="2_y763r"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_802lj"]
+radius = 8.75
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i8dos"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8dos"]
+size = Vector2(29, 19)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_02lvh"]
 atlas = ExtResource("2_y763r")
 region = Rect2(0, 0, 100, 100)
@@ -110,19 +119,19 @@ animations = [{
 "speed": 9.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_i8dos")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_y763r")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_pm7hw")
 }, {
-"duration": 1.0,
+"duration": 1.2,
 "texture": SubResource("AtlasTexture_g0yhc")
 }, {
-"duration": 1.0,
+"duration": 1.2,
 "texture": SubResource("AtlasTexture_orwy7")
 }, {
 "duration": 2.0,
@@ -133,25 +142,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_802lj"]
-radius = 8.75
-height = 20.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_i8dos"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8dos"]
-size = Vector2(29, 19)
-
 [node name="PlayerCharacter" type="CharacterBody2D" groups=["player"]]
 z_index = 10
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_i8dos")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-show_behind_parent = true
-sprite_frames = SubResource("SpriteFrames_02lvh")
-animation = &"SwordAttack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
@@ -171,5 +166,10 @@ collision_mask = 6
 position = Vector2(8.5, 0.5)
 shape = SubResource("RectangleShape2D_i8dos")
 disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+show_behind_parent = true
+sprite_frames = SubResource("SpriteFrames_02lvh")
+animation = &"SwordAttack"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
