@@ -7,13 +7,14 @@ var bswordleft:bool = true
 var bswordright:bool = false
 var attacking:bool = false
 
+
 var gem_counter = 0
 @onready var gem_label: Label = %GemLabel
 @onready var sword_collision: CollisionShape2D = $Area2DSword/SwordCollisionShape2D
 
 func _physics_process(_delta: float) -> void:
 	
-	if Input.is_action_pressed("MouseLeft") && bsword:
+	if Input.is_action_pressed("MouseLeft") && bsword && !attacking:
 			attacking = true
 			sword_collision.disabled = false
 			$AnimatedSprite2D.play("SwordAttack")
@@ -25,31 +26,30 @@ func _physics_process(_delta: float) -> void:
 	if Direction.length() > 1:
 		Direction = Direction.normalized()
 	
-	if attacking:
-		Direction = Vector2(0,0)
-	
-	if Direction.x < -0.5:
-		move_sword_left()
-	if Direction.x > 0.5:
-		move_sword_right()
-	
-	if Direction.x:
-		velocity.x = Direction.x * SPEED
-		$AnimatedSprite2D.flip_h = Direction.x < 0
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if Direction.y:
-		velocity.y = Direction.y * SPEED
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-	
-	if Direction && !attacking:
-		$AnimatedSprite2D.play("Run")
-	if !Direction && !attacking:
-		$AnimatedSprite2D.play("Idle")
-	
-	move_and_slide()
+	if !attacking:
+		
+		if Direction.x < -0.5:
+			move_sword_left()
+		if Direction.x > 0.5:
+			move_sword_right()
+		
+		if Direction.x:
+			velocity.x = Direction.x * SPEED
+			$AnimatedSprite2D.flip_h = Direction.x < 0
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		if Direction.y:
+			velocity.y = Direction.y * SPEED
+		else:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+		
+		if Direction && !attacking:
+			$AnimatedSprite2D.play("Run")
+		if !Direction && !attacking:
+			$AnimatedSprite2D.play("Idle")
+		
+		move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("gem"):

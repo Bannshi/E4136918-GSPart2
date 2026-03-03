@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhyhagvdilxq6"]
+
+[ext_resource type="Script" uid="uid://duhcjab0ht3t2" path="res://Assets/Scenes/idol_gate.gd" id="1_2ev7d"]
+[ext_resource type="Texture2D" uid="uid://ds445d5du8tdl" path="res://icon.svg" id="1_rj8or"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ev7d"]
+size = Vector2(50, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjqri"]
+size = Vector2(50, 20)
+
+[node name="IdolGate" type="StaticBody2D"]
+script = ExtResource("1_2ev7d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_2ev7d")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_vjqri")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.39953542, 0.39953542)
+texture = ExtResource("1_rj8or")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
