@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
+const SPEED = 80
 
 var bsword:bool = false
 var bswordleft:bool = true
