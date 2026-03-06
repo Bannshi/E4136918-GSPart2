@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://bh54ne8552tdw"]
+
+[ext_resource type="Script" uid="uid://dthovhchx5768" path="res://Assets/Scenes/idol.gd" id="1_vebmt"]
+[ext_resource type="PackedScene" uid="uid://d1pqgo3wf6sug" path="res://Assets/InteractLogic/interaction_area.tscn" id="2_hf0gr"]
+[ext_resource type="Texture2D" uid="uid://c8h4uu0rkmdyu" path="res://Assets/Graphics/small_pedistal.png" id="2_vebmt"]
+[ext_resource type="Texture2D" uid="uid://ch3yu8s1woebu" path="res://Assets/Graphics/idol.png" id="3_7vvwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf0gr"]
+size = Vector2(12, 19)
+
+[sub_resource type="Animation" id="Animation_5xh67"]
+resource_name = "Idol_Idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(0.2588165, 1.5157176, 0.24148425),
+"update": 0,
+"values": [-10.0, -14.0, -10.0]
+}
+
+[sub_resource type="Animation" id="Animation_ca2hu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7a6hr"]
+_data = {
+&"Idol_Idle": SubResource("Animation_5xh67"),
+&"RESET": SubResource("Animation_ca2hu")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vebmt"]
+radius = 22.090721
+
+[node name="Idol" type="StaticBody2D"]
+script = ExtResource("1_vebmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_hf0gr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 5)
+texture = ExtResource("2_vebmt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 12
+position = Vector2(0, -10)
+texture = ExtResource("3_7vvwa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D2"]
+root_motion_local = true
+libraries = {
+&"": SubResource("AnimationLibrary_7a6hr")
+}
+autoplay = "Idol_Idle"
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_hf0gr")]
+position = Vector2(0, -5)
+action_name = "Grab the Idol"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_vebmt")

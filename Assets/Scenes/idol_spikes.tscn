@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsxmkj2rpvoht"]
+
+[ext_resource type="Script" uid="uid://c5d1ei26ojvfy" path="res://Assets/Scenes/idol_spikes.gd" id="1_36k5h"]
+[ext_resource type="Texture2D" uid="uid://8svjmnrekl48" path="res://Assets/Graphics/DungeonSpikes_24x24.png" id="1_yb0m7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_36k5h"]
+size = Vector2(44, 44)
+
+[node name="IdolSpikes" type="StaticBody2D"]
+script = ExtResource("1_36k5h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_36k5h")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-12, -12)
+texture = ExtResource("1_yb0m7")
+hframes = 3
+vframes = 4
+frame = 5
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, -12)
+texture = ExtResource("1_yb0m7")
+hframes = 3
+vframes = 4
+frame = 9
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-12, 12)
+texture = ExtResource("1_yb0m7")
+hframes = 3
+vframes = 4
+frame = 7
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 12)
+texture = ExtResource("1_yb0m7")
+hframes = 3
+vframes = 4
+frame = 11
