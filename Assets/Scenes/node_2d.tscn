@@ -365,7 +365,7 @@ position = Vector2(876, 778)
 
 [node name="PlayerCharacter" parent="Objects" instance=ExtResource("5_rdao5")]
 unique_name_in_owner = true
-position = Vector2(724, 598)
+position = Vector2(176, 133)
 
 [node name="PlayerCamera" type="Camera2D" parent="Objects/PlayerCharacter"]
 unique_name_in_owner = true
@@ -581,6 +581,25 @@ theme = ExtResource("10_s7rws")
 theme_override_constants/outline_size = 2
 bbcode_enabled = true
 text = "There it is, the [color=gold]Idol![/color] But how do we get around?"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="WispRoom4" parent="Objects/Wisps" instance=ExtResource("8_aq61h")]
+visible = false
+position = Vector2(818, 434)
+collision_layer = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Objects/Wisps/WispRoom4"]
+z_index = 11
+offset_left = -50.0
+offset_top = -35.0
+offset_right = 150.0
+offset_bottom = 15.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("10_s7rws")
+theme_override_constants/outline_size = 2
+bbcode_enabled = true
+text = "Now let's get out of here before something [color=red]bad[/color] happens"
 visible_characters = 0
 visible_ratio = 0.0
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh54ne8552tdw"]
+[gd_scene load_steps=11 format=3 uid="uid://bh54ne8552tdw"]
 
 [ext_resource type="Script" uid="uid://dthovhchx5768" path="res://Assets/Scenes/idol.gd" id="1_vebmt"]
 [ext_resource type="PackedScene" uid="uid://d1pqgo3wf6sug" path="res://Assets/InteractLogic/interaction_area.tscn" id="2_hf0gr"]
@@ -39,10 +39,39 @@ tracks/0/keys = {
 "update": 1,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-10.0]
+}
+
+[sub_resource type="Animation" id="Animation_7vvwa"]
+resource_name = "Idol_Pickup"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7),
+"transitions": PackedFloat32Array(2.8284266, 2.8284266, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-10.0, -30.0, -32.0, -30.0, -32.0, -28.0, -32.0, -28.0, -32.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7a6hr"]
 _data = {
 &"Idol_Idle": SubResource("Animation_5xh67"),
+&"Idol_Pickup": SubResource("Animation_7vvwa"),
 &"RESET": SubResource("Animation_ca2hu")
 }
 
@@ -78,3 +107,7 @@ action_name = "Grab the Idol"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_vebmt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -18)
+zoom = Vector2(5, 5)

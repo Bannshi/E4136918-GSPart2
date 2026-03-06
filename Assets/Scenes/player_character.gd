@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 const SPEED = 80
 
+var Direction:Vector2 = Vector2(0,0)
+
 var bsword:bool = false
 var bswordleft:bool = true
 var bswordright:bool = false
@@ -22,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 			attacking = false
 			sword_collision.disabled = true
 	
-	var Direction:Vector2 = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
+	Direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
 	if Direction.length() > 1:
 		Direction = Direction.normalized()
 	
