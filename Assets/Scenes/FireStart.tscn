@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdnlufn886tpy"]
+
+[ext_resource type="Script" uid="uid://iudyo1npwlj0" path="res://Assets/Scenes/fire_start.gd" id="1_2nwml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocrn0"]
+size = Vector2(50, 20)
+
+[node name="FireStart" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_2nwml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ocrn0")
+
+[node name="FireCamera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(5, 5)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

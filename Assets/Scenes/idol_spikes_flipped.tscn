@@ -17,25 +17,25 @@ position = Vector2(-12, -12)
 texture = ExtResource("2_1qxjl")
 hframes = 3
 vframes = 4
-frame = 5
+frame = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(12, -12)
 texture = ExtResource("2_1qxjl")
 hframes = 3
 vframes = 4
-frame = 9
+frame = 1
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(-12, 12)
 texture = ExtResource("2_1qxjl")
 hframes = 3
 vframes = 4
-frame = 7
+frame = 3
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(12, 12)
 texture = ExtResource("2_1qxjl")
 hframes = 3
 vframes = 4
-frame = 11
+frame = 3
