@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://chmcci14xaw75"]
+[gd_scene load_steps=24 format=3 uid="uid://chmcci14xaw75"]
 
 [ext_resource type="Script" uid="uid://dpoqfjbbf80vb" path="res://Assets/Scenes/player_character.gd" id="1_i8dos"]
 [ext_resource type="Texture2D" uid="uid://d35gsxckaigp8" path="res://Assets/Graphics/Soldier.png" id="2_y763r"]
+[ext_resource type="AudioStream" uid="uid://d3np3x7rmrim2" path="res://Assets/Audio/step.wav" id="3_y763r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_802lj"]
 radius = 8.75
@@ -116,7 +117,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 0.5,
@@ -172,6 +173,11 @@ disabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 show_behind_parent = true
 sprite_frames = SubResource("SpriteFrames_02lvh")
-animation = &"SwordAttack"
+animation = &"Run"
+frame = 5
+frame_progress = 0.43434942
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_y763r")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
