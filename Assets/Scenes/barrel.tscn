@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgwifvrm2htd0"]
+[gd_scene load_steps=6 format=3 uid="uid://bgwifvrm2htd0"]
 
 [ext_resource type="Texture2D" uid="uid://coegtc6memg27" path="res://Assets/Graphics/decor.png" id="1_aukpi"]
 [ext_resource type="Script" uid="uid://cymolrl820sj" path="res://Assets/Scenes/barrel.gd" id="1_d1vm1"]
+[ext_resource type="AudioStream" uid="uid://c15i1qsjqdntm" path="res://Assets/Audio/barrel.wav" id="3_xeejf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d1vm1"]
 radius = 9.0
@@ -31,5 +32,8 @@ texture = ExtResource("1_aukpi")
 hframes = 7
 vframes = 6
 frame = 8
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xeejf")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

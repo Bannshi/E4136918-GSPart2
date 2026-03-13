@@ -8,7 +8,7 @@ func _ready():
 
 func _pickup_idol():
 	%PlayerCharacter.attacking = true
-	%PlayerCharacter/AnimatedSprite2D.play("Idle")
+	%PlayerCharacter/AnimationPlayer.play("Idle")
 	%PlayerCamera.enabled = false
 	$Camera2D.enabled = true
 	$"../IdolSpikes".go_time()

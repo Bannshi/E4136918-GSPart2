@@ -6,7 +6,7 @@ var xoffset:float = 0
 func _on_area_entered(_area: Area2D) -> void:
 	$CollisionShape2D.queue_free()
 	%PlayerCharacter.attacking = true
-	%PlayerCharacter/AnimatedSprite2D.play("Idle")
+	%PlayerCharacter/AnimationPlayer.play("Idle")
 	%PlayerCamera.enabled = false
 	$FireCamera2D.enabled = true
 	while yoffset < 80:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://byjs5wmoqrcr7"]
+[gd_scene load_steps=42 format=4 uid="uid://byjs5wmoqrcr7"]
 
 [ext_resource type="Texture2D" uid="uid://ddd51lhabtnlu" path="res://Assets/Graphics/Island_24x24.png" id="1_juanf"]
 [ext_resource type="Texture2D" uid="uid://8svjmnrekl48" path="res://Assets/Graphics/DungeonSpikes_24x24.png" id="1_w578k"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bdnlufn886tpy" path="res://Assets/Scenes/FireStart.tscn" id="23_j3xoh"]
 [ext_resource type="FontFile" uid="uid://cxuydm2rm3ubk" path="res://Assets/Graphics/Minecraft.ttf" id="24_mjuq3"]
 [ext_resource type="Texture2D" uid="uid://bfoxpmg5emlpx" path="res://Assets/Graphics/gem.png" id="25_w530h"]
+[ext_resource type="Script" uid="uid://cy6s2evdeej85" path="res://Assets/Scenes/end_screen.gd" id="27_h0gbq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_555ia"]
 texture = ExtResource("1_juanf")
@@ -341,6 +342,9 @@ size = Vector2(8, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubt4h"]
 size = Vector2(12, 5.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u78jl"]
+size = Vector2(50, 20)
+
 [sub_resource type="LabelSettings" id="LabelSettings_2w2ct"]
 font = ExtResource("24_mjuq3")
 font_color = Color(0.7058586, 0.3797659, 0.43167365, 1)
@@ -514,7 +518,7 @@ texture = ExtResource("10_u78jl")
 
 [node name="PlayerCharacter" parent="Objects" instance=ExtResource("9_l5ng5")]
 unique_name_in_owner = true
-position = Vector2(178, 127)
+position = Vector2(173, 123)
 
 [node name="PlayerCamera" type="Camera2D" parent="Objects/PlayerCharacter"]
 unique_name_in_owner = true
@@ -785,18 +789,50 @@ position = Vector2(864, 360)
 
 [node name="Fire" parent="Objects" instance=ExtResource("22_1k420")]
 position = Vector2(624, 240)
+metadata/_edit_lock_ = true
 
 [node name="FireStart" parent="Objects" instance=ExtResource("23_j3xoh")]
 position = Vector2(864, 256)
 
 [node name="EndScreen" type="Node2D" parent="Objects"]
+script = ExtResource("27_h0gbq")
 
-[node name="Camera2D" type="Camera2D" parent="Objects/EndScreen"]
+[node name="ESCamera2D" type="Camera2D" parent="Objects/EndScreen"]
 position = Vector2(2266, -250)
 enabled = false
 zoom = Vector2(5, 5)
 
+[node name="ESArea2D" type="Area2D" parent="Objects/EndScreen"]
+position = Vector2(2209, 47)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/EndScreen/ESArea2D"]
+shape = SubResource("RectangleShape2D_u78jl")
+
+[node name="ColorRect" type="ColorRect" parent="Objects/EndScreen"]
+z_index = 100
+offset_left = 1977.0
+offset_top = -410.0
+offset_right = 2455.0
+offset_bottom = 278.0
+color = Color(0, 0, 0, 0)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Objects/EndScreen"]
+z_index = 11
+offset_left = 2175.0
+offset_top = -299.0
+offset_right = 2595.0
+offset_bottom = -199.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("17_tgclf")
+theme_override_constants/outline_size = 2
+bbcode_enabled = true
+text = "[font size=32]You made it!
+Thanks for playing 😊"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
 [node name="GemLabel" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -829,3 +865,5 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.1115136, 2.1115136)
 texture = ExtResource("25_w530h")
+
+[connection signal="area_entered" from="Objects/EndScreen/ESArea2D" to="Objects/EndScreen" method="_on_es_area_2d_area_entered"]
